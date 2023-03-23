@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'shops/bootstrap-utilities.css' %}">
+    <link rel="stylesheet" href="{% static 'shops/bootstrap-utilities.mim.css' %} ">
+    <link rel="stylesheet" href="{% static 'shops/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'shops/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'shops/header.css' %}">
+    <title>Farm App</title>
+    <style>
+        #foot{
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        
+          <div class="bg-dark text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+              <h1 class="display-5 fw-bold text-white">This is Fico Africa</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4">Fico Africa is a supply chain startup that helps smallholder farmers get access to a large and lucrative international Vendor market. The project is designed to give Vendors quick and easy ways to purchase fresh and affordable farm products accross the continent.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <button type="button" onclick="location.href='{% url 'login' %}'" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Vendors</button>
+                  <button type="button" class="btn btn-outline-light btn-lg px-4">Farmers</button>
+                </div>
+              </div>
+            </div>
+          </div>           
+    </header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+        <div id="foot" class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
+          
+              <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              </a>
+          
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+            </footer>
+          </div>
+    <script src="shops/scripts.js"></script>
+    <script src="shops/bootstrap.min.js"></script>
+    <script src="shops/bootstrap.js"></script>
+    <script src="shops/bootstrap.bundle.js"></script>
+    <script src="shops/bootstrap.bundle.min.js"></script> 
+</body>
+</html>

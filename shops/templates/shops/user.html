@@ -1,0 +1,20 @@
+{% extends 'shops/layout.html' %}
+
+
+{% block main %}
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            // hide the signup button when the user is logged in.
+            document.querySelector('#signup-button').style.display = 'none';
+        });
+    </script>
+
+
+    <div>
+        <h1>Welcome, {{ request.user.username }} </h1>
+    </div>
+
+
+{% endblock %}
+
+

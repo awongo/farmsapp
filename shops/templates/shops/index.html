@@ -1,0 +1,113 @@
+
+
+{% block main %} 
+    <style>
+            section{
+                text-align: center;
+                background-color: #f2f2f2;
+                border: 1px solid white;
+                padding: 10%;
+                margin: 1%;
+                border-radius: 5px;
+                box-shadow: 0px 0px 2px black;
+            }
+            button{
+                width: 30%;
+                padding: 12px 20px;
+                margin: 10px;
+                font-weight: bold;
+                font-size: large;
+                border: 1px solid #10caf0;
+                border-radius: 10px;
+                background-color: whitesmoke;
+                box-shadow: 2px black;
+            }
+            button:hover{
+                background-color: #10caf0;
+                color: #f2f2f2;
+            }
+            .div{
+                text-align: center;
+                margin: 10%;
+                display: none;
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                box-shadow: 10px black;
+            }
+            input, select {
+                width: 50%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=submit] {
+                width: 50%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+    </style>
+    <script>
+        function showForm(form){
+                document.querySelectorAll('.div').forEach(div => {
+                    div.style.display = 'none';
+                })
+                document.querySelector(`#${form}`).style.display = 'block';
+            }
+            // Load the DOM to make use of the buttons
+            document.addEventListener("DOMContentLoaded", ()=> {
+               // document.querySelector('#logout-button').style.display = 'none';
+                document.querySelectorAll('button').forEach(button => {
+                    button.onclick = function(){
+                        showForm(this.dataset.form); 
+                    }
+                });
+            });
+    </script>
+        <section>
+            <h1>Welcome, Let's get you started. </h1>
+            <button data-form="form1" >Login</button>
+            <button data-form="form2" >Sign Up</button>
+        </section>
+
+        {% if message %}
+        <div><small>{{ message }}</small></div>
+        {% endif %}
+
+        <div class="div" id="form1" >
+          <h1>Login</h1>
+          <form id="login" action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <input id="username" name="username" type="text" placeholder="Username">
+              <input type="password" name="password" id="password" placeholder="Password">
+              <input type="submit" value="submit">
+          </form>
+        </div>
+
+        <div class="div" id="form2">
+          <h1>Sign Up</h1>
+          <form id="signup" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+              <input id="name" type="text" placeholder="Full Name">
+              <input id="username" name="username" type="text" placeholder="Username">
+              <input type="email" name="email" id="email" placeholder="Email">
+              <input type="tel" name="number" id="number" placeholder="Phone Number">
+              <input type="password" name="password" id="password" placeholder="Password">
+              <input type="submit" value="submit">
+          </form>
+      </div>
+
+
+{% endblock %}
+
